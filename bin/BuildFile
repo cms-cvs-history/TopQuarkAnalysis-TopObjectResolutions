@@ -6,4 +6,5 @@
  <use name=root>
  
  <bin file="ResolutionBinning.cpp"> </bin>
+ <bin file="ResolutionBinningTest.cpp"> </bin>
 </environment>
