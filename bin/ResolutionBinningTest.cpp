@@ -20,7 +20,6 @@
 
 
 using namespace std;
-using namespace reco;
 
 //histograms
 TH2F *lJetEtEtaBinning;
@@ -168,10 +167,7 @@ int main() {
       solsbranch -> GetEntry( ev );
       if(sols.size()>1){
         //get bestSol
-        int bestSol = -10;
-        for(size_t s=0; s<sols.size(); s++) {
-          if(sols[s].getBestSol()) bestSol = s;
-        }     
+        int bestSol = sols[0].getMCBestSol();
         if(bestSol>-1){ 
 	  AnalyseSolution(sols[bestSol]);
 	  icount++;
