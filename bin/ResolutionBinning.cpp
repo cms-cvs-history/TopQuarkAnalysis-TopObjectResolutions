@@ -147,7 +147,7 @@ int main() {
       solsbranch -> GetEntry( ev );
       if(sols.size()>1){
         //get bestSol
-        int bestSol = sols[0].getMCBestSol();
+        int bestSol = sols[0].getMCCorrJetComb();
         if(bestSol>-1){ 
 	  AnalyseSolution(sols[bestSol]);
 	  
