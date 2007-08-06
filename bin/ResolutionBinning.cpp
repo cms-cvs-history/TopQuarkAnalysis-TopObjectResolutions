@@ -14,7 +14,7 @@
 #include <TFormula.h>
 #include <TStyle.h>
 #include <vector>
-#include "FWCore/FWLite/src/AutoLibraryLoader.h"
+#include "FWCore/FWLite/interface/AutoLibraryLoader.h"
 #include "AnalysisDataFormats/TopObjects/interface/TtGenEvent.h"
 #include "AnalysisDataFormats/TopObjects/interface/TtSemiEvtSolution.h"
 
