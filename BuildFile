@@ -4,6 +4,7 @@
 <use name=AnalysisDataFormats/TopObjects>
 <use name=root>
 <flags SEAL_PLUGIN_NAME="TopQuarkAnalysisTopObjectResolutions">
+<flags LDFLAGS="-lMLP">
 <export>
   <use name=FWCore/Framework>
   <use name=FWCore/ParameterSet>

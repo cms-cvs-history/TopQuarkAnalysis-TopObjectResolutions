@@ -17,6 +17,10 @@ void skimResolutionFile(const char* fileIn, const char* fileOut) {
       //copy to the output file
       ((TH1*)key->ReadObj())->SetDirectory(&output);
     }
+    if(name.Contains("NN")) {
+      output.cd();
+      ((TMultiLayerPerceptron*)key->ReadObj())->Write(name);
+    }
   }
   // write the output
   output.Write();
