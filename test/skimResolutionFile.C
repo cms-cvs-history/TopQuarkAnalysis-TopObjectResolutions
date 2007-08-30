@@ -21,6 +21,10 @@ void skimResolutionFile(const char* fileIn, const char* fileOut) {
       output.cd();
       ((TMultiLayerPerceptron*)key->ReadObj())->Write(name);
     }
+    if(name.Contains("hEtaBins")) {
+      output.cd();
+      ((TH1*)key->ReadObj())->SetDirectory(&output);
+    }
   }
   // write the output
   output.Write();
