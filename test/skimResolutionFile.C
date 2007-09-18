@@ -13,20 +13,25 @@ void skimResolutionFile(const char* fileIn, const char* fileOut) {
   while(key = (TKey*)nextitem()) {
     // select based on the name and on the cycle (select cycle 2 (last one))
     TString name = key->GetName();
-    if(key->GetCycle()==2 && name.Contains("etabin") && !name.Contains("etbin")) {
+    std::cout << name << std::endl;
+    if(name.Contains("etabin") && !name.Contains("etbin")) {
       //copy to the output file
       ((TH1*)key->ReadObj())->SetDirectory(&output);
+      std::cout << "Kept" << std::endl;
     }
     if(name.Contains("NN")) {
       output.cd();
       ((TMultiLayerPerceptron*)key->ReadObj())->Write(name);
+      std::cout << "Kept" << std::endl;
     }
     if(name.Contains("hEtaBins")) {
       output.cd();
       ((TH1*)key->ReadObj())->SetDirectory(&output);
+      std::cout << "Kept" << std::endl;
     }
   }
   // write the output
+  std::cout << "Save output" << std::endl;
   output.Write();
   output.Close();
   input.Close();

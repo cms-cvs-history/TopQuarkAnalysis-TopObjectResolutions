@@ -134,8 +134,7 @@ ResolutionCreator::~ResolutionCreator()
 	fResEtEtaBin[ro][etab][etb] -> SetParameters(hResEtEtaBin[ro][etab][etb] -> GetMaximum(),
 	                                             hResEtEtaBin[ro][etab][etb] -> GetMean(),
 	 					     hResEtEtaBin[ro][etab][etb] -> GetRMS());
-	hResEtEtaBin[ro][etab][etb] -> Fit(fResEtEtaBin[ro][etab][etb]->GetName(),"RQ");
-        //hResEtEtaBin[ro][etab][etb] -> Fit(fResEtEtaBin[ro][etab][etb]->GetName(),"QL");
+	hResEtEtaBin[ro][etab][etb] -> Fit(fResEtEtaBin[ro][etab][etb]->GetName(),"RQL");
         hResEtEtaBin[ro][etab][etb] -> Write();
         hResEtaBin[ro][etab]        -> SetBinContent(etb+1,fResEtEtaBin[ro][etab][etb]->GetParameter(2));
         hResEtaBin[ro][etab]        -> SetBinError(etb+1,fResEtEtaBin[ro][etab][etb]->GetParError(2));
