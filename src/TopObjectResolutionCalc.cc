@@ -2,7 +2,7 @@
 // Author:  Jan Heyninck
 // Created: Tue Apr  3 17:33:23 PDT 2007
 //
-// $Id: TopObjectResolutionCalc.cc,v 1.5.2.2 2007/08/30 17:08:41 heyninck Exp $
+// $Id: TopObjectResolutionCalc.cc,v 1.5.2.3 2007/09/21 13:38:36 delaer Exp $
 //
 #include "TopQuarkAnalysis/TopObjectResolutions/interface/TopObjectResolutionCalc.h"
 
@@ -44,9 +44,9 @@ TopObjectResolutionCalc::TopObjectResolutionCalc(TString resopath,bool useNNet =
   TH1F *tmpEta = (TH1F*) (resoFile->GetKey("hEtaBins")->ReadObj());
   for(int b=1; b<=tmpEta->GetNbinsX(); b++) etabinVals.push_back(tmpEta->GetXaxis()->GetBinLowEdge(b));
   etabinVals.push_back(tmpEta->GetXaxis()->GetBinUpEdge(tmpEta->GetNbinsX()));
-  cout<<"Found "<<etabinVals.size()-1<< " eta-bins with edges: ( ";
-  for(size_t u=0; u<etabinVals.size(); u++) cout<<etabinVals[u]<<", ";
-  cout<<"\b\b )"<<endl;
+  std::cout<<"Found "<<etabinVals.size()-1<< " eta-bins with edges: ( ";
+  for(size_t u=0; u<etabinVals.size(); u++) std::cout<<etabinVals[u]<<", ";
+  std::cout<<"\b\b )"<<std::endl;
   
   std::cout << "=== done." << std::endl;
 }

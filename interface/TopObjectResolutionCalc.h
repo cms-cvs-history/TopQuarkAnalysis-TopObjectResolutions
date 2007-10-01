@@ -2,7 +2,7 @@
 // Author:  Jan Heyninck
 // Created: Tue Apr  3 17:33:23 PDT 2007
 //
-// $Id: TopObjectResolutionCalc.h,v 1.5.2.1 2007/08/24 13:52:26 delaer Exp $
+// $Id: TopObjectResolutionCalc.h,v 1.8 2007/09/20 18:12:25 lowette Exp $
 //
 
 #ifndef TopObjectResolutionCalc_h
@@ -11,7 +11,7 @@
 /**
   \class    TopObjectResolutionCalc TopObjectResolutionCalc.h "TopQuarkAnalysis/TopLeptonSelection/interface/TopObjectResolutionCalc.h"
   \author   Jan Heyninck
-  \version  $Id: TopObjectResolutionCalc.h,v 1.5.2.1 2007/08/24 13:52:26 delaer Exp $
+  \version  $Id: TopObjectResolutionCalc.h,v 1.8 2007/09/20 18:12:25 lowette Exp $
 */
 
 
@@ -21,7 +21,9 @@
 #include "FWCore/Utilities/interface/Exception.h"
 #include "Utilities/General/interface/envUtil.h"
 
-#include "AnalysisDataFormats/TopObjects/interface/TopLepton.h"
+#include "AnalysisDataFormats/TopObjects/interface/TopElectron.h"
+#include "AnalysisDataFormats/TopObjects/interface/TopMuon.h"
+#include "AnalysisDataFormats/TopObjects/interface/TopTau.h"
 #include "AnalysisDataFormats/TopObjects/interface/TopMET.h"
 #include "AnalysisDataFormats/TopObjects/interface/TopJet.h"
 
@@ -50,7 +52,7 @@ class TopObjectResolutionCalc {
 
   private:
     TFile * resoFile;
-    vector<double> etabinVals;
+    std::vector<double> etabinVals;
     TF1 fResVsET[10][10];
     TMultiLayerPerceptron* network[10];
     bool useNN;
