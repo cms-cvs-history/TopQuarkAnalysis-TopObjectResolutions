@@ -93,10 +93,15 @@ void ExtractFitCurvesFromMergedBins(const char* fileIn, const char* fileOut) {
         if(saveBinPlots) h->SetDirectory(&output); 
       }
       //CD: add a fake entry in et=0 for the NN training
-      // for that, use a linear extrapolation.
       et = 0.;
-      value = ((eTbinVals_[0]+eTbinVals_[1])/2.)*(res->GetBinContent(1)-res->GetBinContent(3))/((eTbinVals_[2]-eTbinVals_[0])/2.)+res->GetBinContent(1);
-      error = res->GetBinContent(1)+res->GetBinContent(2);
+      value = res->GetBinContent(1)<res->GetBinContent(2)? res->GetBinContent(1) : 
+        ((eTbinVals_[0]+eTbinVals_[1])/2.)*(res->GetBinContent(1)-res->GetBinContent(3))/((eTbinVals_[2]-eTbinVals_[0])/2.)+res->GetBinContent(1);
+      error = res->GetBinError(1)+res->GetBinError(2);
+      tResVar->Fill();
+      //CD: add a fake entry in et=max for the NN training
+      et = res->GetBinLowEdge(res->GetNbinsX()+1);
+      value = res->GetBinContent(res->GetNbinsX());
+      error = res->GetBinError(res->GetNbinsX());
       tResVar->Fill();
       // standard fit
       TString fname = "F_"; fname += resEtabinName;
